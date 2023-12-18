@@ -6,7 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<CoinDbContext>(c => c.UseSqlServer());
+builder.Services.AddDbContext<CoinDbContext>(c =>
+    c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), x =>
+        x.MigrationsAssembly("CoinPurse.Data.Mssql"))
+    );
 
 var app = builder.Build();
 
