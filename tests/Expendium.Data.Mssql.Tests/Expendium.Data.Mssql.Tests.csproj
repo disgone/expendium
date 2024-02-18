@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>CoinPurse.Data.Mssql.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\CoinPurse.Data\CoinPurse.Data.csproj"/>
-    <ProjectReference Include="..\CoinPurse.Data.Tests.Core\CoinPurse.Data.Tests.Core.csproj" />
+    <ProjectReference Include="..\..\src\Expendium.Data\Expendium.Data.csproj" />
+    <ProjectReference Include="..\Expendium.Data.Tests.Core\Expendium.Data.Tests.Core.csproj" />
   </ItemGroup>
 
 </Project>

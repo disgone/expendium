@@ -4,6 +4,7 @@ using CoinPurse.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoinPurse.Data.Mssql.Migrations
 {
     [DbContext(typeof(CoinDbContext))]
-    partial class CoinDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231218054406_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +40,7 @@ namespace CoinPurse.Data.Mssql.Migrations
                     b.ToTable("AccountBudget");
                 });
 
-            modelBuilder.Entity("CoinPurse.Data.Entities.Account", b =>
+            modelBuilder.Entity("Expendium.Data.Entities.Account", b =>
                 {
                     b.Property<int>("AccountId")
                         .ValueGeneratedOnAdd()
@@ -65,7 +68,7 @@ namespace CoinPurse.Data.Mssql.Migrations
                     b.ToTable("Accounts");
                 });
 
-            modelBuilder.Entity("CoinPurse.Data.Entities.Budget", b =>
+            modelBuilder.Entity("Expendium.Data.Entities.Budget", b =>
                 {
                     b.Property<int>("BudgetId")
                         .ValueGeneratedOnAdd()
@@ -89,7 +92,7 @@ namespace CoinPurse.Data.Mssql.Migrations
                     b.ToTable("Budgets");
                 });
 
-            modelBuilder.Entity("CoinPurse.Data.Entities.Expense", b =>
+            modelBuilder.Entity("Expendium.Data.Entities.Expense", b =>
                 {
                     b.Property<int>("ExpenseId")
                         .ValueGeneratedOnAdd()
@@ -140,7 +143,7 @@ namespace CoinPurse.Data.Mssql.Migrations
                     b.ToTable("Expenses");
                 });
 
-            modelBuilder.Entity("CoinPurse.Data.Entities.ExpenseCategory", b =>
+            modelBuilder.Entity("Expendium.Data.Entities.ExpenseCategory", b =>
                 {
                     b.Property<int>("ExpenseCategoryId")
                         .ValueGeneratedOnAdd()
@@ -200,7 +203,7 @@ namespace CoinPurse.Data.Mssql.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CoinPurse.Data.Entities.PaymentFrequencyLookup", b =>
+            modelBuilder.Entity("Expendium.Data.Entities.PaymentFrequencyLookup", b =>
                 {
                     b.Property<short>("PaymentFrequencyId")
                         .HasColumnType("smallint");
@@ -254,37 +257,37 @@ namespace CoinPurse.Data.Mssql.Migrations
 
             modelBuilder.Entity("AccountBudget", b =>
                 {
-                    b.HasOne("CoinPurse.Data.Entities.Account", null)
+                    b.HasOne("Expendium.Data.Entities.Account", null)
                         .WithMany()
                         .HasForeignKey("AccountsAccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CoinPurse.Data.Entities.Budget", null)
+                    b.HasOne("Expendium.Data.Entities.Budget", null)
                         .WithMany()
                         .HasForeignKey("BudgetsBudgetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("CoinPurse.Data.Entities.Expense", b =>
+            modelBuilder.Entity("Expendium.Data.Entities.Expense", b =>
                 {
-                    b.HasOne("CoinPurse.Data.Entities.Budget", "Budget")
+                    b.HasOne("Expendium.Data.Entities.Budget", "Budget")
                         .WithMany("Expenses")
                         .HasForeignKey("BudgetId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CoinPurse.Data.Entities.ExpenseCategory", "Category")
+                    b.HasOne("Expendium.Data.Entities.ExpenseCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryExpenseCategoryId");
 
-                    b.HasOne("CoinPurse.Data.Entities.ExpenseCategory", null)
+                    b.HasOne("Expendium.Data.Entities.ExpenseCategory", null)
                         .WithMany("Expenses")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("CoinPurse.Data.Entities.PaymentFrequencyLookup", null)
+                    b.HasOne("Expendium.Data.Entities.PaymentFrequencyLookup", null)
                         .WithMany()
                         .HasForeignKey("PaymentFrequency")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -295,12 +298,12 @@ namespace CoinPurse.Data.Mssql.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("CoinPurse.Data.Entities.Budget", b =>
+            modelBuilder.Entity("Expendium.Data.Entities.Budget", b =>
                 {
                     b.Navigation("Expenses");
                 });
 
-            modelBuilder.Entity("CoinPurse.Data.Entities.ExpenseCategory", b =>
+            modelBuilder.Entity("Expendium.Data.Entities.ExpenseCategory", b =>
                 {
                     b.Navigation("Expenses");
                 });

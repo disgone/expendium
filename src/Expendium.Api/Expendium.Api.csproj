@@ -7,6 +7,7 @@
     <InvariantGlobalization>true</InvariantGlobalization>
     <UserSecretsId>dff5f63a-a5cc-41de-bc13-a4341c5e206f</UserSecretsId>
     <InvariantGlobalization>false</InvariantGlobalization>
+    <RootNamespace>CoinPurse.Api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CoinPurse.Data.Mssql\CoinPurse.Data.Mssql.csproj" />
+    <ProjectReference Include="..\Expendium.Data.Mssql\Expendium.Data.Mssql.csproj" />
   </ItemGroup>
 
 </Project>
