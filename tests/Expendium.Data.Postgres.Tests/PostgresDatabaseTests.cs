@@ -1,8 +1,8 @@
-using CoinPurse.Data.Entities;
+using Expendium.Data.Entities;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 
-namespace CoinPurse.Data.Postgres.Tests;
+namespace Expendium.Data.Postgres.Tests;
 
 public class PostgresDatabaseTests : PostgresDatabaseContainerTest
 {

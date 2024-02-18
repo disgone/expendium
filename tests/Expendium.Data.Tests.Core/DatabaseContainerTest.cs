@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Xunit;
 
-namespace CoinPurse.Data.Tests.Core;
+namespace Expendium.Data.Tests.Core;
 
 public abstract class DatabaseContainerTest: IAsyncLifetime
 {

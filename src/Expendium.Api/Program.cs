@@ -1,5 +1,6 @@
-using CoinPurse.Api.Infrastructure;
 using CoinPurse.Data;
+using Expendium.Api.Infrastructure;
+using Expendium.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

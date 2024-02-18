@@ -1,8 +1,8 @@
-using CoinPurse.Data.Entities;
+using Expendium.Data.Entities;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 
-namespace CoinPurse.Data.Mssql.Tests;
+namespace Expendium.Data.Mssql.Tests;
 
 public sealed class MssqlDatabaseTests : MssqlDatabaseContainerTest
 {

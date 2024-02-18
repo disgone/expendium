@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CoinPurse.Data.Entities.Configuration;
+namespace Expendium.Data.Entities.Configuration;
 
 internal sealed class ExpenseCategoryConfiguration : IEntityTypeConfiguration<ExpenseCategory>
 {

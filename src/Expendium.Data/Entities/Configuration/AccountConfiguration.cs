@@ -1,8 +1,8 @@
-using CoinPurse.Data.Decorators;
+using Expendium.Data.Decorators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CoinPurse.Data.Entities.Configuration;
+namespace Expendium.Data.Entities.Configuration;
 
 internal sealed class AccountConfiguration : IEntityTypeConfiguration<Account>
 {

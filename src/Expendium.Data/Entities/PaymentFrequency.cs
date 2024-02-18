@@ -1,4 +1,4 @@
-namespace CoinPurse.Data.Entities;
+namespace Expendium.Data.Entities;
 
 public enum PaymentFrequency : short
 {

@@ -1,9 +1,9 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using CoinPurse.Data.Decorators;
+using System.ComponentModel.DataAnnotations.Schema;
+using Expendium.Data.Decorators;
 using Microsoft.EntityFrameworkCore;
 
-namespace CoinPurse.Data.Entities;
+namespace Expendium.Data.Entities;
 
 public class Account : IIdentifiable<int>, IAudited
 {

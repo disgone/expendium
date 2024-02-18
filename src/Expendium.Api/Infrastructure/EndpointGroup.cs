@@ -1,4 +1,4 @@
-namespace CoinPurse.Api.Infrastructure;
+namespace Expendium.Api.Infrastructure;
 
 public abstract class EndpointGroup
 {

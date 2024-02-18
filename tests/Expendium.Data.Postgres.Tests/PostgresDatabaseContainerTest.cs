@@ -1,16 +1,16 @@
-using CoinPurse.Data.Tests.Core;
 using DotNet.Testcontainers.Containers;
+using Expendium.Data.Tests.Core;
 using Microsoft.EntityFrameworkCore;
 using Testcontainers.PostgreSql;
 
-namespace CoinPurse.Data.Postgres.Tests;
+namespace Expendium.Data.Postgres.Tests;
 
 public abstract class PostgresDatabaseContainerTest: DatabaseContainerTest
 {
     protected override IDatabaseContainer CreateContainer()
     {
         return new PostgreSqlBuilder()
-            .WithImage("postgres:16.1-bookworm")
+            .WithImage("postgres:16.2-bookworm")
             .WithPassword("yourStrong(!)Password")
             .Build();
     }

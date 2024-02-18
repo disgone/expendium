@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace CoinPurse.Api.Infrastructure;
+namespace Expendium.Api.Infrastructure;
 
 public static class WebApplicationExtensions
 {

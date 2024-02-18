@@ -1,6 +1,6 @@
-using CoinPurse.Api.Infrastructure;
+using Expendium.Api.Infrastructure;
 
-namespace CoinPurse.Api.Endpoints.Accounts;
+namespace Expendium.Api.Endpoints.Accounts;
 
 public class Accounts : EndpointGroup
 {

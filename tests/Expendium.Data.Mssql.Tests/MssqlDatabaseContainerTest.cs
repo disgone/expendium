@@ -1,9 +1,9 @@
-using CoinPurse.Data.Tests.Core;
 using DotNet.Testcontainers.Containers;
+using Expendium.Data.Tests.Core;
 using Microsoft.EntityFrameworkCore;
 using Testcontainers.MsSql;
 
-namespace CoinPurse.Data.Mssql.Tests;
+namespace Expendium.Data.Mssql.Tests;
 
 public abstract class MssqlDatabaseContainerTest : DatabaseContainerTest
 {

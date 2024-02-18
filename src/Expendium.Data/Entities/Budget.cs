@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using CoinPurse.Data.Decorators;
+using Expendium.Data.Decorators;
 
-namespace CoinPurse.Data.Entities;
+namespace Expendium.Data.Entities;
 
 public class Budget: IIdentifiable<int>, IAudited
 {

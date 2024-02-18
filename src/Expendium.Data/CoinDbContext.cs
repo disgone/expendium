@@ -1,9 +1,9 @@
-using CoinPurse.Data.Entities;
-using CoinPurse.Data.Entities.Configuration;
-using CoinPurse.Data.Interceptors;
+using Expendium.Data.Entities;
+using Expendium.Data.Entities.Configuration;
+using Expendium.Data.Interceptors;
 using Microsoft.EntityFrameworkCore;
 
-namespace CoinPurse.Data;
+namespace Expendium.Data;
 
 public class CoinDbContext : DbContext
 {

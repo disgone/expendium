@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CoinPurse.Data.Entities;
+namespace Expendium.Data.Entities;
 
 [Table("PaymentFrequencyTypes")]
 public record PaymentFrequencyLookup

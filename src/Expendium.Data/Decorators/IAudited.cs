@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CoinPurse.Data.Decorators;
+namespace Expendium.Data.Decorators;
 
 public interface IAudited
 {

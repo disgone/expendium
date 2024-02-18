@@ -1,8 +1,8 @@
-using CoinPurse.Data.Decorators;
+using Expendium.Data.Decorators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace CoinPurse.Data.Interceptors;
+namespace Expendium.Data.Interceptors;
 
 public class AuditDateChangeInterceptor : SaveChangesInterceptor
 {
