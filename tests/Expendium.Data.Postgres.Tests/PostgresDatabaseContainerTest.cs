@@ -15,9 +15,9 @@ public abstract class PostgresDatabaseContainerTest: DatabaseContainerTest
             .Build();
     }
 
-    protected override DbContextOptions<CoinDbContext> DbContextOptions()
+    protected override DbContextOptions<ExpendiumDbContext> DbContextOptions()
     {
-        return new DbContextOptionsBuilder<CoinDbContext>()
+        return new DbContextOptionsBuilder<ExpendiumDbContext>()
             .UseNpgsql(ConnectionString)
             .Options;
     }

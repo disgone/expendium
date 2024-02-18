@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CoinPurse.Data.Mssql.Migrations
 {
-    [DbContext(typeof(CoinDbContext))]
+    [DbContext(typeof(ExpendiumDbContext))]
     [Migration("20231218054406_Initial")]
     partial class Initial
     {

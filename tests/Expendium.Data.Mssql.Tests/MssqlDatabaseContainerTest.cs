@@ -15,9 +15,9 @@ public abstract class MssqlDatabaseContainerTest : DatabaseContainerTest
             .Build();
     }
 
-    protected override DbContextOptions<CoinDbContext> DbContextOptions()
+    protected override DbContextOptions<ExpendiumDbContext> DbContextOptions()
     {
-        return new DbContextOptionsBuilder<CoinDbContext>()
+        return new DbContextOptionsBuilder<ExpendiumDbContext>()
             .UseSqlServer(ConnectionString)
             .Options;
     }

@@ -42,11 +42,11 @@ public abstract class DatabaseContainerTest: IAsyncLifetime
 
     protected abstract IDatabaseContainer CreateContainer();
 
-    protected abstract DbContextOptions<CoinDbContext> DbContextOptions();
+    protected abstract DbContextOptions<ExpendiumDbContext> DbContextOptions();
 
-    protected virtual CoinDbContext GetDbContext()
+    protected virtual ExpendiumDbContext GetDbContext()
     {
         var options = DbContextOptions();
-        return new CoinDbContext(options);
+        return new ExpendiumDbContext(options);
     }
 }

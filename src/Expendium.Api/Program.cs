@@ -1,4 +1,3 @@
-using CoinPurse.Data;
 using Expendium.Api.Infrastructure;
 using Expendium.Data;
 using Microsoft.EntityFrameworkCore;
@@ -7,9 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<CoinDbContext>(c =>
-    c.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), x =>
-        x.MigrationsAssembly("Expendium.Data.Mssql"))
+builder.Services.AddDbContext<ExpendiumDbContext>(c =>
+    c.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"), x =>
+        x.MigrationsAssembly("Expendium.Data.Postgres"))
     );
 
 var app = builder.Build();

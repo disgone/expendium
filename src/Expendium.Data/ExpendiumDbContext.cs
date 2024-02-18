@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Expendium.Data;
 
-public class CoinDbContext : DbContext
+public class ExpendiumDbContext : DbContext
 {
-    public CoinDbContext()
+    public ExpendiumDbContext()
     {
     }
 
-    public CoinDbContext(DbContextOptions options)
+    public ExpendiumDbContext(DbContextOptions options)
         : base(options)
     {
     }
