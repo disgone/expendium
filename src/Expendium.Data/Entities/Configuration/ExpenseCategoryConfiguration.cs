@@ -7,6 +7,9 @@ internal sealed class ExpenseCategoryConfiguration : IEntityTypeConfiguration<Ex
 {
     public void Configure(EntityTypeBuilder<ExpenseCategory> builder)
     {
+        builder.HasIndex(n => n.Name)
+            .IsUnique();
+
         builder.HasMany(ec => ec.Expenses)
             .WithOne()
             .HasForeignKey(e => e.CategoryId);

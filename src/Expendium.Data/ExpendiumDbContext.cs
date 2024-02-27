@@ -20,6 +20,8 @@ public class ExpendiumDbContext : DbContext
     public DbSet<Account> Accounts { get; set; } = null!;
     public DbSet<Budget> Budgets { get; set; } = null!;
 
+    public DbSet<ExpenseCategory> Categories { get; set; } = null!;
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

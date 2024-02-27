@@ -3,6 +3,7 @@ using System;
 using Expendium.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Expendium.Data.Postgres.Migrations
 {
     [DbContext(typeof(ExpendiumDbContext))]
-    partial class ExpendiumDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240227032701_UniqueCategoryName")]
+    partial class UniqueCategoryName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
