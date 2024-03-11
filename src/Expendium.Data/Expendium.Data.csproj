@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Expendium.Transactions.Abstractions\Expendium.Transactions.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>

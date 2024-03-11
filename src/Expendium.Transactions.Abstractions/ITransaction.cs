@@ -6,6 +6,17 @@
 public interface ITransaction
 {
     /// <summary>
+    /// Returns the source account for the transaction.
+    /// </summary>
+    /// <returns>The source account name for the transaction</returns>
+    string SourceAccount { get; }
+
+    /// <summary>
+    /// Gets the name of the bank that the transaction originated from.
+    /// </summary>
+    string BankName { get; }
+
+    /// <summary>
     /// Gets the signature for the transaction, which can be used to identify unique or
     /// like transactions.
     /// </summary>

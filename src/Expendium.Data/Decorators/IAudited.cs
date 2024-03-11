@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Expendium.Data.Decorators;
@@ -22,10 +23,12 @@ public static class ModelBuilderExtensions
     {
         // Configure CreatedAt
         builder.Property(e => e.CreatedAt)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP AT TIME ZONE 'UTC'")
             .IsRequired();
 
         // Configure ModifiedAt
         builder.Property(e => e.ModifiedAt)
-            .IsRequired(false);
+            .HasDefaultValueSql("CURRENT_TIMESTAMP AT TIME ZONE 'UTC'")
+            .IsRequired();
     }
 }
