@@ -10,8 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Update="Banks\CapitalOne\*.csv">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <None Update="Banks\**\*.csv">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
 

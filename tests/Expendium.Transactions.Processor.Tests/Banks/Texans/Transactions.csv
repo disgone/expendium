@@ -1,0 +1,6 @@
+"Transaction ID","Posting Date","Effective Date","Transaction Type","Amount","Check Number","Reference Number","Description","Transaction Category","Type","Balance","Memo","Extended Description"
+"20240401 210000 484,000 178,132","4/1/2024","4/1/2024","Credit","4840.00000","","122498712","External ACH Trace 221","Other Income","ACH","10292.69000","","External ACH Trace 221"
+"20240304 210000 65,500 289,900","3/3/2024","3/3/2024","Debit","-655.00000","331","122284043","Loan 0013","Loans","Transfer","5452.69000","Nissan","Loan Payment 0013, Nissan Automotive"
+"20240202 210000 200,000 264,154","2/2/2024","2/2/2024","Debit","-2000.00000","","122884050","Payment to Bank of America","Credit Card Payments","ACH","6107.69000","","BANK OF AMERICA PAYMENT"
+"20240201 210000 100,000 264,149","2/2/2024","2/2/2024","Debit","-1000.00000","","102654040","Payment to Capital One","Credit Card Payments","ACH","8107.69000","","CAPITAL ONE TYPE: ONLINE PMT"
+"20240115 210000 55,000 264,144","1/15/2024","1/15/2024","Debit","-550.00000","","102644031","Savings Transfer","Savings","ACH","9107.69000","","External Investment Transfer 0001"
