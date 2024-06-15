@@ -7,9 +7,13 @@ namespace Expendium.Transactions.Processing.Banks.CapitalOne;
 public record CapitalOneTransaction : ITransaction
 {
     private const string CapitalOneBankName = "CapitalOne";
+    private string? _sourceAccount;
 
     private string? _transactionSignature;
-    private string? _sourceAccount;
+
+    public DateTimeOffset PostedDate { get; init; }
+
+    public string CardNumber { get; init; } = string.Empty;
 
     public string SourceAccount => _sourceAccount ??= $"{BankName}:{CardNumber}";
 
@@ -27,13 +31,9 @@ public record CapitalOneTransaction : ITransaction
 
     public ICollection<string> Tags { get; init; } = Array.Empty<string>();
 
-    public DateTimeOffset PostedDate { get; init; }
-
-    public string CardNumber { get; init; } = string.Empty;
-
     private string GenerateHash()
     {
-        StringBuilder transactionSb = new StringBuilder();
+        var transactionSb = new StringBuilder();
 
         // Glob our identifying ata together separated by :
         transactionSb.AppendJoin(":",
@@ -44,9 +44,10 @@ public record CapitalOneTransaction : ITransaction
             Description);
 
         // Compute the hash
-        byte[] data = SHA256.HashData(Encoding.UTF8.GetBytes(transactionSb.ToString()));
+        var data = SHA256.HashData(Encoding.UTF8.GetBytes(transactionSb.ToString()));
 
-        string hash = BitConverter.ToString(data).Replace("-", string.Empty).ToLowerInvariant();
+        var hash = BitConverter.ToString(data).Replace("-", string.Empty)
+            .ToLowerInvariant();
 
         return hash;
     }

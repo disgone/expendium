@@ -16,7 +16,8 @@ public class TexansFinancialCsvParserTests
     [Trait("Category", "Integration")]
     public void Parse_HasRecords_ReturnsTransactions()
     {
-        using var stream = TestFileHelper.GetFileStream("Banks/Texans/Transactions.csv");
+        using var stream =
+            TestFileHelper.GetFileStream("Banks/Texans/Transactions.csv");
 
         var result = _parser.Parse(stream).ToList();
 
@@ -28,8 +29,10 @@ public class TexansFinancialCsvParserTests
     {
         using var stream = new MemoryStream();
         using var writer = new StreamWriter(stream);
-        writer.WriteLine("\"Transaction ID\",\"Posting Date\",\"Effective Date\",\"Transaction Type\",\"Amount\",\"Check Number\",\"Reference Number\",\"Description\",\"Transaction Category\",\"Type\",\"Balance\",\"Memo\",\"Extended Description\"");
-        writer.WriteLine("\"20240401 210000 484,000 178,132\",\"4/1/2024\",\"4/2/2024\",\"Credit\",\"4840.00000\",\"\",\"122498712\",\"External ACH Trace 221\",\"Other Income\",\"ACH\",\"10292.69000\",\"\",\"External ACH Trace 221: Payment Processing\"");
+        writer.WriteLine(
+            "\"Transaction ID\",\"Posting Date\",\"Effective Date\",\"Transaction Type\",\"Amount\",\"Check Number\",\"Reference Number\",\"Description\",\"Transaction Category\",\"Type\",\"Balance\",\"Memo\",\"Extended Description\"");
+        writer.WriteLine(
+            "\"20240401 210000 484,000 178,132\",\"4/1/2024\",\"4/2/2024\",\"Credit\",\"4840.00000\",\"\",\"122498712\",\"External ACH Trace 221\",\"Other Income\",\"ACH\",\"10292.69000\",\"\",\"External ACH Trace 221: Payment Processing\"");
         writer.Flush();
         stream.Position = 0;
 
@@ -48,7 +51,8 @@ public class TexansFinancialCsvParserTests
         transaction.Category.Should().Be("Other Income");
         transaction.Type.Should().Be("ACH");
         transaction.Balance.Should().Be(10292.69000m);
-        transaction.ExtendedDescription.Should().Be("External ACH Trace 221: Payment Processing");
+        transaction.ExtendedDescription.Should()
+            .Be("External ACH Trace 221: Payment Processing");
     }
 
     [Fact]

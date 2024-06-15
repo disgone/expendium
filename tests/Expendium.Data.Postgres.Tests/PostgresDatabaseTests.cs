@@ -34,7 +34,7 @@ public class PostgresDatabaseTests : PostgresDatabaseContainerTest
         int id;
 
         {
-            var budget = new Budget { Name = "Test Budget"};
+            var budget = new Budget { Name = "Test Budget" };
             context.Budgets.Add(budget);
             await context.SaveChangesAsync();
             id = budget.BudgetId;
@@ -96,7 +96,13 @@ public class PostgresDatabaseTests : PostgresDatabaseContainerTest
         {
             var budget = new Budget { Name = "Test Budget" };
             var category = new ExpenseCategory { Name = "Test Category" };
-            var expense = new Expense { Name = "Test Expense", Amount = 200m, Category = category, Budget = budget };
+            var expense = new Expense
+            {
+                Name = "Test Expense",
+                Amount = 200m,
+                Category = category,
+                Budget = budget
+            };
 
             context.Expenses.Add(expense);
             await context.SaveChangesAsync();

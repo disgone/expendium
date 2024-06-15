@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Expendium.Data.Tests.Core;
 
-public abstract class DatabaseContainerTest: IAsyncLifetime
+public abstract class DatabaseContainerTest : IAsyncLifetime
 {
     protected DatabaseContainerTest()
     {
@@ -35,10 +35,7 @@ public abstract class DatabaseContainerTest: IAsyncLifetime
         }
     }
 
-    private void SetupContainer()
-    {
-        Container = CreateContainer();
-    }
+    private void SetupContainer() => Container = CreateContainer();
 
     protected abstract IDatabaseContainer CreateContainer();
 

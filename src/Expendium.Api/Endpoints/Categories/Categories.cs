@@ -20,15 +20,13 @@ public class Categories : EndpointGroup
 
         group.MapPost("/", (ExpendiumDbContext dbContext, CreateCategory category) =>
         {
-            var newCategory = new ExpenseCategory
-            {
-                Name = category.Name
-            };
+            var newCategory = new ExpenseCategory { Name = category.Name };
 
             dbContext.Categories.Add(newCategory);
             dbContext.SaveChanges();
 
-            return Results.Created($"/api/categories/{newCategory.ExpenseCategoryId}", newCategory);
+            return Results.Created($"/api/categories/{newCategory.ExpenseCategoryId}",
+                newCategory);
         }).Produces<int>(StatusCodes.Status201Created, "application/json");
 
         group.MapDelete("/{id}", (ExpendiumDbContext dbContext, int id) =>
@@ -54,6 +52,6 @@ public class Categories : EndpointGroup
 
     private record CreateCategory
     {
-        public string Name { get; init; }
+        public string Name { get; }
     }
 }

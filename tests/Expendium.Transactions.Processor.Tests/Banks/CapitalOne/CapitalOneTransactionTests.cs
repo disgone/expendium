@@ -45,10 +45,7 @@ public class CapitalOneTransactionTests
     public void TransactionSignature_ChangingPostedDateChangesSignature()
     {
         var original = CreateDefaultTransaction();
-        var update = original with
-        {
-            PostedDate = original.PostedDate.AddDays(1)
-        };
+        var update = original with { PostedDate = original.PostedDate.AddDays(1) };
 
         original.TransactionSignature.Should()
             .NotBe(update.TransactionSignature);
@@ -104,9 +101,8 @@ public class CapitalOneTransactionTests
             .Be(update.TransactionSignature);
     }
 
-    private static CapitalOneTransaction CreateDefaultTransaction()
-    {
-        return new CapitalOneTransaction
+    private static CapitalOneTransaction CreateDefaultTransaction() =>
+        new()
         {
             TransactionDate = new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero),
             PostedDate = new DateTimeOffset(2021, 1, 2, 0, 0, 0, TimeSpan.Zero),
@@ -116,5 +112,4 @@ public class CapitalOneTransactionTests
             Category = "Test Category",
             Tags = new List<string> { "Test Tag" }
         };
-    }
 }

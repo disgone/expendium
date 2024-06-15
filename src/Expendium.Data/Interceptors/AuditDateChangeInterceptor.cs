@@ -7,16 +7,13 @@ namespace Expendium.Data.Interceptors;
 public class AuditDateChangeInterceptor : SaveChangesInterceptor
 {
     private static readonly Lazy<AuditDateChangeInterceptor> _instance =
-       new(() => new AuditDateChangeInterceptor());
+        new(() => new AuditDateChangeInterceptor());
 
     private AuditDateChangeInterceptor()
     {
     }
 
-    public static AuditDateChangeInterceptor Instance
-    {
-        get { return _instance.Value; }
-    }
+    public static AuditDateChangeInterceptor Instance => _instance.Value;
 
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData,
         InterceptionResult<int> result)
@@ -26,7 +23,8 @@ public class AuditDateChangeInterceptor : SaveChangesInterceptor
             return result;
         }
 
-        var entries = eventData.Context.ChangeTracker.Entries<IAudited>();
+        var entries =
+            eventData.Context.ChangeTracker.Entries<IAudited>();
         foreach (var entry in entries)
         {
             if (entry.State == EntityState.Added)
@@ -39,14 +37,13 @@ public class AuditDateChangeInterceptor : SaveChangesInterceptor
                 entry.Entity.ModifiedAt = DateTimeOffset.UtcNow;
             }
         }
+
         return result;
     }
 
     public override ValueTask<InterceptionResult<int>> SavingChangesAsync(
         DbContextEventData eventData,
         InterceptionResult<int> result,
-        CancellationToken cancellationToken = default)
-    {
-        return ValueTask.FromResult(SavingChanges(eventData, result));
-    }
+        CancellationToken cancellationToken = default) =>
+        ValueTask.FromResult(SavingChanges(eventData, result));
 }

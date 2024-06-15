@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Expendium.Data\Expendium.Data.csproj" />
-    <ProjectReference Include="..\Expendium.Data.Tests.Core\Expendium.Data.Tests.Core.csproj" />
+    <ProjectReference Include="..\..\src\Expendium.Data\Expendium.Data.csproj"/>
+    <ProjectReference Include="..\Expendium.Data.Tests.Core\Expendium.Data.Tests.Core.csproj"/>
   </ItemGroup>
 
 </Project>

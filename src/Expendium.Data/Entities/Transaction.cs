@@ -13,6 +13,17 @@ public class Transaction : ITransaction, IIdentifiable<long>, IAudited
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long TransactionId { get; set; }
 
+    [Required]
+    public TransactionStatus Status { get; set; }
+
+    public DateTimeOffset CreatedAt { get; set; }
+
+    public DateTimeOffset? ModifiedAt { get; set; }
+
+    public long GetId() => TransactionId;
+
+    public void SetId(long id) => TransactionId = id;
+
     [MaxLength(400)]
     public required string SourceAccount { get; set; }
 
@@ -35,18 +46,7 @@ public class Transaction : ITransaction, IIdentifiable<long>, IAudited
     [MaxLength(200)]
     public string? Category { get; set; }
 
-    [Required]
-    public TransactionStatus Status { get; set; }
-
     public ICollection<string> Tags => _tags;
-
-    public long GetId() => TransactionId;
-
-    public void SetId(long id) => TransactionId = id;
-
-    public DateTimeOffset CreatedAt { get; set; }
-
-    public DateTimeOffset? ModifiedAt { get; set; }
 }
 
 public enum TransactionStatus

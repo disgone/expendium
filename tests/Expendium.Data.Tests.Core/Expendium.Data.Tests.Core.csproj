@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Testcontainers" Version="3.6.0" />
-      <PackageReference Include="xunit.extensibility.core" Version="2.6.2" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Testcontainers" Version="3.6.0"/>
+    <PackageReference Include="xunit.extensibility.core" Version="2.6.2"/>
+  </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\src\Expendium.Data\Expendium.Data.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Expendium.Data\Expendium.Data.csproj"/>
+  </ItemGroup>
 
 </Project>

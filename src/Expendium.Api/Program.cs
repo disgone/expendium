@@ -9,7 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ExpendiumDbContext>(c =>
     c.UseNpgsql(builder.Configuration.GetConnectionString("Expendium"), x =>
         x.MigrationsAssembly("Expendium.Data.Postgres"))
-    );
+);
 
 builder.Services.AddHostedService<MigrationHostedService>();
 

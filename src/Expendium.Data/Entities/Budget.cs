@@ -4,7 +4,7 @@ using Expendium.Data.Decorators;
 
 namespace Expendium.Data.Entities;
 
-public class Budget: IIdentifiable<int>, IAudited
+public class Budget : IIdentifiable<int>, IAudited
 {
     private readonly List<Account> _accounts = new();
     private readonly List<Expense> _expenses = new();

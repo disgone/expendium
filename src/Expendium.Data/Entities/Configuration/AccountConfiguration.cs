@@ -6,8 +6,6 @@ namespace Expendium.Data.Entities.Configuration;
 
 internal sealed class AccountConfiguration : IEntityTypeConfiguration<Account>
 {
-    public void Configure(EntityTypeBuilder<Account> builder)
-    {
+    public void Configure(EntityTypeBuilder<Account> builder) =>
         builder.ApplyAuditableConfiguration();
-    }
 }

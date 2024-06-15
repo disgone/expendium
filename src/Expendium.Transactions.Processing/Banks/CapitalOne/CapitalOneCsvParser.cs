@@ -11,16 +11,15 @@ public class CapitalOneCsvParser : ITransactionParser
     public IEnumerable<ITransaction> Parse(Stream stream)
     {
         using var reader = Sep.New(',')
-            .Reader(o => o with
-            {
-                HasHeader = true,
-                DisableColCountCheck = true
-            })
+            .Reader(o => o with { HasHeader = true, DisableColCountCheck = true })
             .From(stream);
 
         foreach (var row in reader)
         {
-            if (row.Span.Length == 0) continue;
+            if (row.Span.Length == 0)
+            {
+                continue;
+            }
 
             var transaction = new CapitalOneTransaction
             {

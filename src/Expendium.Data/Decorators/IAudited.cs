@@ -18,7 +18,8 @@ public interface IAudited
 
 public static class ModelBuilderExtensions
 {
-    public static void ApplyAuditableConfiguration<TEntity>(this EntityTypeBuilder<TEntity> builder)
+    public static void ApplyAuditableConfiguration<TEntity>(
+        this EntityTypeBuilder<TEntity> builder)
         where TEntity : class, IAudited
     {
         // Configure CreatedAt

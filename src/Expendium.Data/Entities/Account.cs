@@ -16,14 +16,14 @@ public class Account : IIdentifiable<int>, IAudited
     public required string Name { get; set; }
 
     [Required]
-    [Precision(18,2)]
+    [Precision(18, 2)]
     public required decimal Amount { get; set; }
+
+    public ICollection<Budget> Budgets { get; set; } = new List<Budget>();
 
     public DateTimeOffset CreatedAt { get; set; }
 
     public DateTimeOffset? ModifiedAt { get; set; }
-
-    public ICollection<Budget> Budgets { get; set; } = new List<Budget>();
 
     public int GetId() => AccountId;
 

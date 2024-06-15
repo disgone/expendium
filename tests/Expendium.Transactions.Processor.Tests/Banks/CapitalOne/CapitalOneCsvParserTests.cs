@@ -20,7 +20,8 @@ public class CapitalOneCsvParserTests
         var parser = new CapitalOneCsvParser();
         using var stream = new MemoryStream();
         using var writer = new StreamWriter(stream);
-        writer.WriteLine("Transaction Date,Posted Date,Card No.,Description,Category,Debit,Credit");
+        writer.WriteLine(
+            "Transaction Date,Posted Date,Card No.,Description,Category,Debit,Credit");
         writer.WriteLine("2021-01-01,2021-01-02,1234,Test,Test Category,1.87,");
         writer.Flush();
         stream.Position = 0;
@@ -31,8 +32,10 @@ public class CapitalOneCsvParserTests
 
         var transaction =
             result[0].Should().BeAssignableTo<CapitalOneTransaction>().Which;
-        transaction.TransactionDate.Should().Be(new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero));
-        transaction.PostedDate.Should().Be(new DateTimeOffset(2021, 1, 2, 0, 0, 0, TimeSpan.Zero));
+        transaction.TransactionDate.Should()
+            .Be(new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero));
+        transaction.PostedDate.Should()
+            .Be(new DateTimeOffset(2021, 1, 2, 0, 0, 0, TimeSpan.Zero));
         transaction.CardNumber.Should().Be("1234");
         transaction.Description.Should().Be("Test");
         transaction.Category.Should().Be("Test Category");
@@ -45,7 +48,8 @@ public class CapitalOneCsvParserTests
         var parser = new CapitalOneCsvParser();
         using var stream = new MemoryStream();
         using var writer = new StreamWriter(stream);
-        writer.WriteLine("Transaction Date,Posted Date,Card No.,Description,Category,Debit,Credit");
+        writer.WriteLine(
+            "Transaction Date,Posted Date,Card No.,Description,Category,Debit,Credit");
         writer.WriteLine("2021-01-01,2021-01-02,1234,Test,Test Cat,,887.21");
         writer.Flush();
         stream.Position = 0;
@@ -54,8 +58,10 @@ public class CapitalOneCsvParserTests
 
         var transaction =
             result[0].Should().BeAssignableTo<CapitalOneTransaction>().Which;
-        transaction.TransactionDate.Should().Be(new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero));
-        transaction.PostedDate.Should().Be(new DateTimeOffset(2021, 1, 2, 0, 0, 0, TimeSpan.Zero));
+        transaction.TransactionDate.Should()
+            .Be(new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero));
+        transaction.PostedDate.Should()
+            .Be(new DateTimeOffset(2021, 1, 2, 0, 0, 0, TimeSpan.Zero));
         transaction.CardNumber.Should().Be("1234");
         transaction.Description.Should().Be("Test");
         transaction.Category.Should().Be("Test Cat");
@@ -67,7 +73,8 @@ public class CapitalOneCsvParserTests
     public void Parse_WhenStreamContainsCsvData_ReturnsTransactions()
     {
         var parser = new CapitalOneCsvParser();
-        using var stream = TestFileHelper.GetFileStream("Banks/CapitalOne/Transactions.csv");
+        using var stream =
+            TestFileHelper.GetFileStream("Banks/CapitalOne/Transactions.csv");
 
         var result = parser.Parse(stream).ToList();
 

@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Expendium.Data.Entities.Configuration;
 
-internal sealed class ExpenseCategoryConfiguration : IEntityTypeConfiguration<ExpenseCategory>
+internal sealed class
+    ExpenseCategoryConfiguration : IEntityTypeConfiguration<ExpenseCategory>
 {
     public void Configure(EntityTypeBuilder<ExpenseCategory> builder)
     {
@@ -15,13 +16,13 @@ internal sealed class ExpenseCategoryConfiguration : IEntityTypeConfiguration<Ex
             .HasForeignKey(e => e.CategoryId);
 
         builder.HasData(
-            new() { ExpenseCategoryId = 1, Name = "Housing" },
-            new() { ExpenseCategoryId = 2, Name = "Utilities" },
-            new() { ExpenseCategoryId = 3, Name = "Food" },
-            new() { ExpenseCategoryId = 4, Name = "Savings & Investment" },
-            new() { ExpenseCategoryId = 5, Name = "Entertainment" },
-            new() { ExpenseCategoryId = 6, Name = "Miscellaneous" },
-            new() { ExpenseCategoryId = 7, Name = "Transportation" },
-            new() { ExpenseCategoryId = 8, Name = "Personal Services" });
+            new ExpenseCategory { ExpenseCategoryId = 1, Name = "Housing" },
+            new ExpenseCategory { ExpenseCategoryId = 2, Name = "Utilities" },
+            new ExpenseCategory { ExpenseCategoryId = 3, Name = "Food" },
+            new ExpenseCategory { ExpenseCategoryId = 4, Name = "Savings & Investment" },
+            new ExpenseCategory { ExpenseCategoryId = 5, Name = "Entertainment" },
+            new ExpenseCategory { ExpenseCategoryId = 6, Name = "Miscellaneous" },
+            new ExpenseCategory { ExpenseCategoryId = 7, Name = "Transportation" },
+            new ExpenseCategory { ExpenseCategoryId = 8, Name = "Personal Services" });
     }
 }
