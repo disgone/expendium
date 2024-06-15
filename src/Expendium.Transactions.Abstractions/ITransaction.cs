@@ -35,7 +35,7 @@ public interface ITransaction
     /// <summary>
     /// Gets the description of the transaction.
     /// </summary>
-    string Description { get; }
+    string? Description { get; }
 
     /// <summary>
     /// Gets the category of the transaction.

@@ -38,7 +38,7 @@ public class TexansFinancialCsvParserTests
         result.Should().ContainSingle();
 
         var transaction = result[0] as TexansFinancialTransaction;
-        transaction.TransactionSignature.Should().Be("20240401 210000 484,000 178,132");
+        transaction!.TransactionSignature.Should().Be("20240401 210000 484,000 178,132");
         transaction.PostingDate.Should().Be(DateTimeOffset.Parse("4/1/2024"));
         transaction.TransactionDate.Should().Be(DateTimeOffset.Parse("4/2/2024"));
         transaction.TransactionType.Should().Be("Credit");

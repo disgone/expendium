@@ -14,7 +14,7 @@ namespace Expendium.Transactions.Processor.Tests
         /// <returns>The full path of the test file.</returns>
         public static string GetTestFilePath(string relativePath)
         {
-            string assemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string assemblyLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
             return Path.Combine(assemblyLocation, relativePath);
         }
 

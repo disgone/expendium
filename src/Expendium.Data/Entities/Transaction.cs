@@ -7,12 +7,13 @@ namespace Expendium.Data.Entities;
 
 public class Transaction : ITransaction, IIdentifiable<long>, IAudited
 {
-    private readonly List<string> _tags = new();
+    private readonly List<string> _tags = [];
 
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long TransactionId { get; set; }
 
+    [MaxLength(400)]
     public required string SourceAccount { get; set; }
 
     [Required]
@@ -20,6 +21,7 @@ public class Transaction : ITransaction, IIdentifiable<long>, IAudited
     public required string BankName { get; set; }
 
     [Required]
+    [MaxLength(250)]
     public required string TransactionSignature { get; set; }
 
     public required DateTimeOffset TransactionDate { get; set; }
@@ -27,8 +29,10 @@ public class Transaction : ITransaction, IIdentifiable<long>, IAudited
     [Required]
     public required decimal Amount { get; set; }
 
-    public string Description { get; set; }
+    [MaxLength(400)]
+    public string? Description { get; set; }
 
+    [MaxLength(200)]
     public string? Category { get; set; }
 
     [Required]

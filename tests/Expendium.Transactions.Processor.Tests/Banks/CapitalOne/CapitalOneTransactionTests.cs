@@ -104,7 +104,7 @@ public class CapitalOneTransactionTests
             .Be(update.TransactionSignature);
     }
 
-    private CapitalOneTransaction CreateDefaultTransaction()
+    private static CapitalOneTransaction CreateDefaultTransaction()
     {
         return new CapitalOneTransaction
         {
