@@ -1,58 +1,54 @@
 <Project>
   <PropertyGroup>
-    <!-- Prevents non-SDK projects from re-importing -->
-    <ImportDirectoryBuildProps>false</ImportDirectoryBuildProps>
-
     <!-- Configure code analysis -->
     <!-- This is enabled by default in NET5+ -->
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisLevel>latest-recommended</AnalysisLevel>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-
-    <!-- Force warnings to be dealt with -->
-    <!--<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>-->
   </PropertyGroup>
 
   <!-- Configure generic assembly information -->
   <PropertyGroup>
     <Authors>Shaun Smith</Authors>
-    <Copyright>Copyright © 2023 Shaun Smith</Copyright>
+    <Copyright>Copyright © 2024 Shaun Smith</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <!-- Project Conventions -->
   <PropertyGroup>
-    <!-- Sets IsUnitTestProject to true if our project followings the convention where unit test project names end in 'Test' or 'Tests' -->
-    <IsUnitTestProject Condition=" '$(IsUnitTestProject)' == '' AND ( $(MSBuildProjectName.EndsWith('.Test')) OR $(MSBuildProjectName.EndsWith('.Tests')) ) ">true</IsUnitTestProject>
-    <IsUnitTestProject Condition=" '$(IsUnitTestProject)' == '' ">false</IsUnitTestProject>
+    <!-- Sets IsTestProject to true if our project followings the convention where unit test project names end in 'Test' or 'Tests' -->
+    <IsTestProject Condition=" '$(IsTestProject)' == '' AND ( $(MSBuildProjectName.EndsWith('.Test')) OR $(MSBuildProjectName.EndsWith('.Tests')) ) ">true</IsTestProject>
+    <IsTestProject Condition=" '$(IsTestProject)' == '' ">false</IsTestProject>
   </PropertyGroup>
 
   <!-- Configure Unit Test Projects -->
   <!-- These properties/references can be removed by default, or overriden with a different version/value if desired -->
-  <PropertyGroup Condition="'$(IsUnitTestProject)' == 'true'">
+  <PropertyGroup Condition="'$(IsTestProject)' == 'true'">
     <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(IsUnitTestProject)' == 'true'">
+  <ItemGroup Condition="'$(IsTestProject)' == 'true'">
     <PackageReference Include="FluentAssertions" Version="6.12.0"/>
-    <PackageReference Include="FluentAssertions.Analyzers" Version="0.30.0">
+    <PackageReference Include="FluentAssertions.Analyzers" Version="0.32.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0"/>
     <PackageReference Include="Moq" Version="4.20.70"/>
-    <PackageReference Include="xunit" Version="2.7.0"/>
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.7">
+    <PackageReference Include="xunit" Version="2.8.1"/>
+    <PackageReference Include="xunit.analyzers" Version="1.14.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.collector" Version="6.0.0">
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
 
-  <!-- Generated and added on 11/29/2023 08:00:54.7971-06:00 via bitcrafter-buildprops -->
+  <!-- Generated and added on 06/14/2024 22:25:36.3933-05:00 via bitcrafter-buildprops -->
 </Project>
